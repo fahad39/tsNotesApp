@@ -1,14 +1,9 @@
-import express from "express";
-import dotenv from "dotenv";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+import app from "./app";
 dotenv.config();
 
-const app = express();
 const PORT = process.env.PORT || 5001;
-
-app.get("/", (req, res) => {
-  res.send("Hello, world");
-});
 
 mongoose
   .connect(process.env.DATABASE_URL!)
