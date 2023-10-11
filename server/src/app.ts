@@ -1,9 +1,12 @@
 import express, { NextFunction, Request, Response } from "express";
 import dotenv from "dotenv";
 import notesRoutes from "./routes/notes";
+import morgan = require("morgan");
+
 dotenv.config();
 
 const app = express();
+app.use(morgan("dev"));
 
 app.use(express.json());
 
