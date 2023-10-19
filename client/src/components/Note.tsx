@@ -5,15 +5,17 @@ import { Card } from "react-bootstrap";
 
 interface NoteProps {
   note: NoteModel;
+  style?: string;
 }
-const Note = ({ note }: NoteProps) => {
+const Note = ({ note, style }: NoteProps) => {
   const { title, text, createdAt, updatedAt } = note;
   return (
-    <Card className={styles.noteCard}>
+    <Card className={`${styles.noteCard} ${style}`}>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text className={styles.cardText}>{text}</Card.Text>
       </Card.Body>
+      <Card.Footer className="text=muted">{createdAt}</Card.Footer>
     </Card>
   );
 };
