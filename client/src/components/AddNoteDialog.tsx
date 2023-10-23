@@ -3,10 +3,11 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { NoteInput } from "../network/notes_api";
 import * as NotesApi from "../network/notes_api";
+import { Note } from "../models/note";
 
 interface AddNoteDialogProps {
   onDismiss: () => void;
-  onNoteSaved: (note: void) => void;
+  onNoteSaved: (note: Note) => void;
 }
 
 const AddNoteDialog = ({ onDismiss, onNoteSaved }: AddNoteDialogProps) => {
@@ -19,7 +20,7 @@ const AddNoteDialog = ({ onDismiss, onNoteSaved }: AddNoteDialogProps) => {
   async function onSubmit(input: NoteInput) {
     try {
       const noteResponse = await NotesApi.createNote(input);
-      onNoteSaved();
+      onNoteSaved(noteResponse);
     } catch (error) {
       console.error(error);
     }
@@ -37,8 +38,12 @@ const AddNoteDialog = ({ onDismiss, onNoteSaved }: AddNoteDialogProps) => {
             <Form.Control
               type="text"
               placeholder="Title"
+              isInvalid={!!errors.title}
               {...register("title", { required: "Required" })}
             />
+            <Form.Control.Feedback type="invalid">
+              {errors.title?.message}
+            </Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Text</Form.Label>
@@ -46,12 +51,8 @@ const AddNoteDialog = ({ onDismiss, onNoteSaved }: AddNoteDialogProps) => {
               as={"textarea"}
               rows={5}
               placeholder="Enter the Text"
-              isInvalid={!!errors.title}
               {...register("text")}
             />
-            <Form.Control.Feedback type="invalid">
-              {errors.title?.message}
-            </Form.Control.Feedback>
           </Form.Group>
         </Form>
       </Modal.Body>
