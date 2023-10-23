@@ -3,7 +3,7 @@ import { Note as NoteModel } from "./models/note";
 import Note from "./components/Note";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import styles from "../src/styles/NotesPage.module.css";
-import * as NoteApi from "./network/notes_api";
+import * as NotesApi from "./network/notes_api";
 import AddNoteDialog from "./components/AddNoteDialog";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     async function loadNotes() {
       try {
-        const notes = await NoteApi.fetchNotes();
+        const notes = await NotesApi.fetchNotes();
         setNotes(notes);
       } catch (error) {
         console.error(error);
@@ -35,7 +35,12 @@ function App() {
           );
         })}
       </Row>
-      {showAddNote && <AddNoteDialog onDismiss={() => setShowAddNote(false)} />}
+      {showAddNote && (
+        <AddNoteDialog
+          onDismiss={() => setShowAddNote(false)}
+          onNoteSaved={() => {}}
+        />
+      )}
     </Container>
   );
 }
