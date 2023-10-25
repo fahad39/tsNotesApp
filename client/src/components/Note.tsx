@@ -10,8 +10,14 @@ interface NoteProps {
   note: NoteModel;
   style?: string;
   onDeletNoteClicked: (note: NoteModel) => void;
+  onNoteClicked: (note: NoteModel) => void;
 }
-const Note = ({ note, style, onDeletNoteClicked }: NoteProps) => {
+const Note = ({
+  note,
+  style,
+  onDeletNoteClicked,
+  onNoteClicked,
+}: NoteProps) => {
   const { title, text, createdAt, updatedAt } = note;
 
   let createdUpdatedText: string;

@@ -52,6 +52,7 @@ function App() {
                 note={item}
                 style={styles.note}
                 onDeletNoteClicked={deleteNote}
+                onNoteClicked={() => {}}
               />
             </Col>
           );
