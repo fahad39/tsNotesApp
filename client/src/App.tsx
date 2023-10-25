@@ -24,6 +24,16 @@ function App() {
     loadNotes();
   }, []);
 
+  async function deleteNote(note: NoteModel) {
+    try {
+      await NotesApi.deleteNote(note._id);
+      setNotes(notes.filter((existingNote) => existingNote._id !== note._id));
+    } catch (error) {
+      console.error(error);
+      alert(error);
+    }
+  }
+
   return (
     <Container>
       <Button
@@ -36,7 +46,11 @@ function App() {
         {notes?.map((item, index) => {
           return (
             <Col key={item._id}>
-              <Note note={item} style={styles.note} />
+              <Note
+                note={item}
+                style={styles.note}
+                onDeletNoteClicked={deleteNote}
+              />
             </Col>
           );
         })}

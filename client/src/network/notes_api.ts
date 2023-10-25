@@ -35,5 +35,5 @@ export async function createNote(note: NoteInput): Promise<Note> {
 }
 
 export async function deleteNote(noteId: string) {
-  await fetchData("/api/note/" + noteId, { method: "DELETE" });
+  await fetchData("/api/notes/" + noteId, { method: "DELETE" });
 }
