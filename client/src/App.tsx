@@ -5,7 +5,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import styles from "../src/styles/NotesPage.module.css";
 import styleUtils from "../src/styles/utils.module.css";
 import * as NotesApi from "./network/notes_api";
-import AddNoteDialog from "./components/AddNoteDialog";
+import AddNoteDialog from "./components/AddEditNoteDialog";
 import { FaPlus } from "react-icons/fa";
 
 function App() {
