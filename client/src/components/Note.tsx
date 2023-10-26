@@ -28,7 +28,10 @@ const Note = ({
   }
 
   return (
-    <Card className={`${styles.noteCard} ${style}`}>
+    <Card
+      className={`${styles.noteCard} ${style}`}
+      onClick={() => onNoteClicked(note)}
+    >
       <Card.Body className={styles.cardBody}>
         <Card.Title className={styleUtils.flexCenter}>
           {title}
