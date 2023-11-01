@@ -3,10 +3,10 @@
   "name": "node-js",
   "builds": [
     {
-      "src": "dist/index.js",
+      "src": "dist/server.js",
       "use": "@vercel/node",
       "config": { "includesFiles": ["dist/**"] }
     }
   ],
-  "routes": [{ "src": "/(.*)", "dest": "dist/index.js" }]
+  "routes": [{ "src": "/(.*)", "dest": "dist/server.js" }]
 }
