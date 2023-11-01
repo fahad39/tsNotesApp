@@ -23,6 +23,7 @@ const LoginModal = ({ onDismiss, onLoginSuccessful }: LoginModalProps) => {
   async function onSubmit(credentials: LoginCredentials) {
     try {
       const user = await NotesApi.login(credentials);
+      onLoginSuccessful(user);
     } catch (error) {
       if (error instanceof Unauthorized) {
         setErrorText(error.message);
