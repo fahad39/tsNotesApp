@@ -15,7 +15,7 @@ const TextInputField = ({
   name,
   label,
   register,
-  registerOtions,
+  registerOptions,
   error,
   ...props
 }: TextInputFieldProps) => {
@@ -24,7 +24,7 @@ const TextInputField = ({
       <Form.Label>{label}</Form.Label>
       <Form.Control
         {...props}
-        {...register(name, registerOtions)}
+        {...register(name, registerOptions)}
         isInvalid={!!error}
       />
       <Form.Control.Feedback type="invalid">
