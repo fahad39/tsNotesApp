@@ -47,7 +47,7 @@ const LoginModal = ({ onDismiss, onLoginSuccessful }: LoginModalProps) => {
             type="text"
             placeholder="Enter your username"
             register={register}
-            registrationOptions={{ required: "Required" }}
+            registerOptions={{ required: "Required" }}
             error={errors.username}
           />
           <TextInputField
@@ -56,7 +56,7 @@ const LoginModal = ({ onDismiss, onLoginSuccessful }: LoginModalProps) => {
             type="password"
             placeholder="Enter your Password"
             register={register}
-            registrationOptions={{ required: "Required" }}
+            registerOptions={{ required: "Required" }}
             error={errors.password}
           />
           <Button
