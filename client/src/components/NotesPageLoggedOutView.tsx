@@ -1,7 +1,7 @@
 import React from "react";
 
 const NotesPageLoggedOutView = () => {
-  return <div>NotesPageLoggedOutView</div>;
+  return <div>Log in to continue</div>;
 };
 
 export default NotesPageLoggedOutView;
